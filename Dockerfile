@@ -1,4 +1,4 @@
-FROM alpine:3.7
+FROM --platform=linux/amd64 alpine:3.7
 
 MAINTAINER David Coppit <david@coppit.org>
 
@@ -10,7 +10,7 @@ echo "http://dl-cdn.alpinelinux.org/alpine/v3.7/community" >> /etc/apk/repositor
 apk --update upgrade && \
 \
 # Basics, including runit
-apk add bash curl htop runit && \
+apk add bash curl htop runit lftp && \
 \
 # Needed by our code
 apk add --no-cache python3 icu-libs shadow && \
